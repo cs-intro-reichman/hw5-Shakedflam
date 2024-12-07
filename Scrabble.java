@@ -113,6 +113,8 @@ public class Scrabble {
 				score+= wordScore(input);
 				hand = MyString.remove(hand, input);
 				System.out.println(input + " earned "+wordScore(input)+" points. Score: "+score+" points");
+			} else if (!isWordInDictionary(input) && !input.equals(".")){
+				System.out.println("No such word in the dictionary. Try again.");
 			}
 			if (input.equals(".")){
 				n=0;
@@ -123,7 +125,7 @@ public class Scrabble {
 		} else {
 			System.out.println("End of hand. Total score: " + score + " points");
 		}
-		// playGame();
+		playGame();
 	}
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
