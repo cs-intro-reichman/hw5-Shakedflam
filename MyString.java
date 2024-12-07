@@ -9,6 +9,12 @@ public class MyString {
         // System.out.println(countChar(hello, 'z'));
         // System.out.println(spacedString(hello));
             // System.out.println(insertRandomly('g', "hello"));
+            System.out.println("\nTesting subsetOf:");
+            System.out.println("sap in space -> " + MyString.subsetOf("sap", "space") + " (expected: true)");
+            System.out.println("spa in space -> " + MyString.subsetOf("spa", "space") + " (expected: true)");
+            System.out.println("pass in space -> " + MyString.subsetOf("pass", "space") + " (expected: false)");
+            System.out.println("c in space -> " + MyString.subsetOf("c", "space") + " (expected: true)");
+            System.out.println("empty string in anything -> " + MyString.subsetOf("", "anything") + " (expected: true)");
             
         }
     
@@ -43,12 +49,20 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-         boolean isSubset=false;
          for (int i=0; i<str1.length(); i++){
-            if (countChar(str1, str1.charAt(i))!=countChar(str2, str2.charAt(i))){
-                return isSubset;
+            boolean isSubset=false;
+            char ch1= str1.charAt(i);
+            for (int j=0; j<str2.length();j++){
+                char ch2= str2.charAt(j);
+                if (ch1==ch2 && countChar(str1, ch1)<= countChar(str2, ch2) ){
+                    isSubset = true;
+                    break;
+                }
             }
-         }
+            if (isSubset==false){
+                return false;
+            }
+        }
         return true;
     }
 
