@@ -3,13 +3,14 @@
  */
 public class MyString {
     public static void main(String args[]) {
-        String hello = "hello";
-        System.out.println(countChar(hello, 'h'));
-        System.out.println(countChar(hello, 'l'));
-        System.out.println(countChar(hello, 'z'));
-        System.out.println(spacedString(hello));
-        //// Put your other tests here.
-    }
+        // String hello = "hello";
+        // System.out.println(countChar(hello, 'h'));
+        // System.out.println(countChar(hello, 'l'));
+        // System.out.println(countChar(hello, 'z'));
+        // System.out.println(spacedString(hello));
+            System.out.println(insertRandomly('g', "hello"));
+        }
+    
 
     /**
      * Returns the number of times the given character appears in the given string.
@@ -20,8 +21,13 @@ public class MyString {
      * @return the number of times c appears in str
      */
     public static int countChar(String str, char ch) {
-        //// Replace the following statement with your code
-        return 0;
+        int count=0;
+        for (int i=0; i<str.length(); i++){
+            if (str.charAt(i)==ch){
+                count++;
+            }
+        }
+        return count;
     }
 
     /** Returns true if str1 is a subset string str2, false otherwise
@@ -36,8 +42,13 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-         //// Replace the following statement with your code
-        return false;
+         boolean isSubset=false;
+         for (int i=0; i<str1.length(); i++){
+            if (countChar(str1, str1.charAt(i))!=countChar(str2, str2.charAt(i))){
+                return isSubset;
+            }
+         }
+        return true;
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -49,8 +60,16 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        //// Replace the following statement with your code
-        return null;
+        int length= str.length();
+        String newString="";
+        if (str.length()==0) {
+            return ""+" ";
+        }
+        
+        for (int i=0; i<length; i++){
+            newString+="" + " "+str.charAt(i);
+        }
+        return newString;
     }
   
     /**
@@ -64,10 +83,13 @@ public class MyString {
      * @return a randomly generated string, consisting of 'n' lowercase letters
      */
     public static String randomStringOfLetters(int n) {
-        //// Replace the following statement with your code
-        return null;
+        String abc= "abcdefghijklmnopqrstuvwxyz";
+        String randomString="";
+        for (int i=0; i<n; i++){
+            randomString+= ""+ abc.charAt((int)(Math.random()*26));
+        }
+        return randomString;
     }
-
     /**
      * Returns a string consisting of the string str1, minus all the characters in the
      * string str2. Assumes (without checking) that str2 is a subset of str1.
@@ -78,23 +100,43 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-       //// Replace the following statement with your code
-        return null;
-    }
-
-    /**
-     * Returns a string consisting of the given string, with the given 
-     * character inserted randomly somewhere in the string.
-     * For example, insertRandomly("s","cat") can return "scat", or "csat", or "cast", or "cats".  
-     * @param ch - a character
-     * @param str - a string
-     * @return a string consisting of str with ch inserted somewhere
-     */
-    public static String insertRandomly(char ch, String str) {
-         // Generate a random index between 0 and str.length()
-         int randomIndex = (int) (Math.random() * (str.length() + 1));
-         // Insert the character at the random index
-         String result = str.substring(0, randomIndex) + ch + str.substring(randomIndex);
-         return result;
-    }    
-}
+        char[] newCharArray= new char[str1.length()];
+        for (int i=0; i<str1.length(); i++){
+            newCharArray[i]=str1.charAt(i);
+        }
+        for (int j=0; j<str2.length(); j++){
+            char char2= str2.charAt(j);
+            for (int k=0; k<newCharArray.length; k++){
+                if (newCharArray[k]==char2 || newCharArray[k]==char2-32 || newCharArray[k]==char2+32){
+                    newCharArray[k]=' ';
+                    break;
+                }
+            }
+        }
+        String newString="";
+        for (int m=0; m<newCharArray.length; m++){
+            if (newCharArray[m]!=' '){
+                newString+="" + newCharArray[m];
+            }
+        }
+         return newString;
+     }
+ 
+     /**
+      * Returns a string consisting of the given string, with the given 
+      * character inserted randomly somewhere in the string.
+      * For example, insertRandomly("s","cat") can return "scat", or "csat", or "cast", or "cats".  
+      * @param ch - a character
+      * @param str - a string
+      * @return a string consisting of str with ch inserted somewhere
+      */
+     public static String insertRandomly(char ch, String str) {
+          // Generate a random index between 0 and str.length()
+          int randomIndex = (int) (Math.random() * (str.length() + 1));
+          // Insert the character at the random index
+          String result = str.substring(0, randomIndex) + ch + str.substring(randomIndex);
+          return result;
+     }    
+ }
+ 
+ 
