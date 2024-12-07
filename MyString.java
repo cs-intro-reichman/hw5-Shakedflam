@@ -8,7 +8,8 @@ public class MyString {
         // System.out.println(countChar(hello, 'l'));
         // System.out.println(countChar(hello, 'z'));
         // System.out.println(spacedString(hello));
-            System.out.println(insertRandomly('g', "hello"));
+            // System.out.println(insertRandomly('g', "hello"));
+            
         }
     
 
@@ -66,9 +67,10 @@ public class MyString {
             return ""+" ";
         }
         
-        for (int i=0; i<length; i++){
-            newString+="" + " "+str.charAt(i);
+        for (int i=0; i<length-1; i++){
+            newString+="" +str.charAt(i)+ " ";
         }
+        newString+=""+str.charAt(length-1);
         return newString;
     }
   
