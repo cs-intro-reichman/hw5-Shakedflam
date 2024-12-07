@@ -112,9 +112,9 @@ public class Scrabble {
 			if (isWordInDictionary(input)){
 				score+= wordScore(input);
 				hand = MyString.remove(hand, input);
-				System.out.println(input + " earned "+wordScore(input)+" points. Score: "+score+" points");
-			} else if (!isWordInDictionary(input) && !input.equals(".")){
-				System.out.println("No such word in the dictionary. Try again.");
+			// 	System.out.println(input + " earned "+wordScore(input)+" points. Score: "+score+" points");
+			// } else if (!isWordInDictionary(input) && !input.equals(".")){
+			// 	System.out.println("No such word in the dictionary. Try again.");
 			}
 			if (input.equals(".")){
 				n=0;
