@@ -125,7 +125,7 @@ public class Scrabble {
 		} else {
 			System.out.println("End of hand. Total score: " + score + " points");
 		}
-		playGame();
+		// playGame();
 	}
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
