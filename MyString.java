@@ -64,7 +64,7 @@ public class MyString {
         int length= str.length();
         String newString="";
         if (str.length()==0) {
-            return ""+" ";
+            return ""+"";
         }
         
         for (int i=0; i<length-1; i++){
